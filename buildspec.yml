@@ -20,6 +20,10 @@ phases:
     commands:
       - echo Build completed on `date`
       - cp target/MyJavaApp-0.0.1-SNAPSHOT.jar my-java-app.jar
+      
+      # Upload JAR file to S3 bucket
+      - aws s3 cp my-java-app.jar s3://codepipe-s3-bucket/
+
 
 artifacts:
   files:
